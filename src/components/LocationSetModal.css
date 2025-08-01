@@ -1,0 +1,237 @@
+/* LocationSetModal 스타일 */
+.location-modal {
+  background: white;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.close-button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.close-button:hover {
+  background: #f5f5f5;
+}
+
+.location-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* 현재 위치 버튼 */
+.current-location-btn {
+  width: 100%;
+  padding: 16px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.current-location-btn:hover:not(:disabled) {
+  background: #ff5252;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.current-location-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* 탭 메뉴 */
+.location-tabs {
+  display: flex;
+  background: #f5f5f5;
+  padding: 4px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.location-tabs .tab-btn {
+  flex: 1;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.location-tabs .tab-btn.active {
+  background: white;
+  color: #ff6b6b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 지역 그리드 */
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.region-btn {
+  padding: 20px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.region-btn:hover {
+  border-color: #ff6b6b;
+  background: #fff5f5;
+}
+
+.region-btn.selected {
+  background: #ffe0e6;
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
+/* 랜드마크 리스트 */
+.landmark-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.landmark-btn {
+  padding: 16px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.landmark-btn:hover {
+  border-color: #ff6b6b;
+  background: #fff5f5;
+}
+
+.landmark-btn.selected {
+  background: #ffe0e6;
+  border-color: #ff6b6b;
+}
+
+.landmark-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.landmark-address {
+  font-size: 14px;
+  color: #666;
+}
+
+/* 선택된 위치 표시 */
+.selected-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.selected-location svg {
+  color: #ff6b6b;
+}
+
+/* 모달 액션 */
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+  border-top: 1px solid #e0e0e0;
+  background: white;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn {
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  color: #666;
+}
+
+.cancel-btn:hover {
+  background: #e0e0e0;
+}
+
+.save-btn {
+  background: #ff6b6b;
+  border: none;
+  color: white;
+}
+
+.save-btn:hover:not(:disabled) {
+  background: #ff5252;
+}
+
+.save-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
