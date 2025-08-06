@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이나들 프로젝트 대시보드</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        .phase-card {
+            transition: all 0.3s ease;
+        }
+        .phase-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-8">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">🚀 아이나들 프로젝트 대시보드</h1>
+            <p class="text-gray-600">워킹맘을 위한 대전 아이 나들이 장소 추천 서비스</p>
+            <div class="mt-4 flex flex-wrap gap-4">
+                <div class="text-sm">
+                    <span class="font-semibold">시작일:</span> 2025년 8월 9일
+                </div>
+                <div class="text-sm">
+                    <span class="font-semibold">목표 출시:</span> 2026년 2월 9일
+                </div>
+                <div class="text-sm">
+                    <span class="font-semibold">현재 Phase:</span> 
+                    <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded">Phase 1 - 데이터 수집</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overall Progress -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">전체 진행률</h2>
+            <div class="relative pt-1">
+                <div class="flex mb-2 items-center justify-between">
+                    <div>
+                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
+                            진행중
+                        </span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-semibold inline-block text-teal-600" id="overallPercent">5%</span>
+                    </div>
+                </div>
+                <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-teal-200">
+                    <div class="progress-bar shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-teal-500" 
+                         style="width: 5%"></div>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600">26주 중 1주차 진행중</p>
+        </div>
+
+        <!-- Phase Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            <!-- Phase 1 -->
+            <div class="phase-card bg-white rounded-lg shadow-md p-6 border-l-4 border-yellow-500">
+                <h3 class="text-lg font-semibold mb-2">Phase 1: 데이터 수집</h3>
+                <p class="text-sm text-gray-600 mb-4">2주 (8/9 - 8/22)</p>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm">
+                        <span>Week 1: 장소 수집</span>
+                        <span class="text-yellow-600">진행중</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span>Week 2: 데이터 정리</span>
+                        <span class="text-gray-400">대기</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="bg-yellow-100 rounded-full h-2">
+                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 30%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="phase-card bg-white rounded-lg shadow-md p-6 border-l-4 border-gray-300">
+                <h3 class="text-lg font-semibold mb-2">Phase 2: 핵심 기능</h3>
+                <p class="text-sm text-gray-600 mb-4">8주 (8/23 - 10/17)</p>
+                <div class="space-y-2 text-sm text-gray-500">
+                    <div>• 사용자 인증</div>
+                    <div>• 장소 필터링</div>
+                    <div>• 방문 기록</div>
+                    <div>• 지도 통합</div>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="phase-card bg-white rounded-lg shadow-md p-6 border-l-4 border-gray-300">
+                <h3 class="text-lg font-semibold mb-2">Phase 3: UX/UI</h3>
+                <p class="text-sm text-gray-600 mb-4">6주 (10/18 - 11/28)</p>
+                <div class="space-y-2 text-sm text-gray-500">
+                    <div>• 모바일 최적화</div>
+                    <div>• 개인화 기능</div>
+                    <div>• 커뮤니티</div>
+                </div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="phase-card bg-white rounded-lg shadow-md p-6 border-l-4 border-gray-300">
+                <h3 class="text-lg font-semibold mb-2">Phase 4: 고급 기능</h3>
+                <p class="text-sm text-gray-600 mb-4">6주 (11/29 - 1/9)</p>
+                <div class="space-y-2 text-sm text-gray-500">
+                    <div>• 검색 최적화</div>
+                    <div>• 데이터 분석</div>
+                    <div>• 성능 최적화</div>
+                </div>
+            </div>
+
+            <!-- Phase 5 -->
+            <div class="phase-card bg-white rounded-lg shadow-md p-6 border-l-4 border-gray-300">
+                <h3 class="text-lg font-semibold mb-2">Phase 5: 출시 준비</h3>
+                <p class="text-sm text-gray-600 mb-4">4주 (1/10 - 2/9)</p>
+                <div class="space-y-2 text-sm text-gray-500">
+                    <div>• 테스트</div>
+                    <div>• 버그 수정</div>
+                    <div>• 마케팅</div>
+                    <div>• 🎉 출시!</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Week Tasks -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">이번 주 작업 (Week 1)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="border rounded-lg p-4">
+                    <h4 class="font-semibold text-sm mb-2">월요일 (8/11)</h4>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span class="text-sm">키즈카페 수집 (15개)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span class="text-sm">도서관 수집 (15개)</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="border rounded-lg p-4">
+                    <h4 class="font-semibold text-sm mb-2">수요일 (8/13)</h4>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span class="text-sm">공원/수목원 수집 (20개)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span class="text-sm">중복 제거</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="border rounded-lg p-4">
+                    <h4 class="font-semibold text-sm mb-2">금요일 (8/15)</h4>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span class="text-sm">체험시설 수집 (20개)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span class="text-sm">필터링 및 정리</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Collection Progress -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">데이터 수집 현황</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-600" id="totalPlaces">5</div>
+                    <div class="text-sm text-gray-600">전체 장소</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-green-600" id="targetPlaces">100</div>
+                    <div class="text-sm text-gray-600">목표</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-yellow-600" id="progressPercent">5%</div>
+                    <div class="text-sm text-gray-600">달성률</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-purple-600" id="daysLeft">13</div>
+                    <div class="text-sm text-gray-600">남은 일수</div>
+                </div>
+            </div>
+            <canvas id="categoryChart" width="400" height="200"></canvas>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4">빠른 링크</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="https://supabase.com/dashboard/project/khpubcicxqaweviflvxr" 
+                   target="_blank"
+                   class="text-center p-4 border rounded-lg hover:bg-gray-50 transition">
+                    <div class="text-2xl mb-2">🗄️</div>
+                    <div class="text-sm">Supabase</div>
+                </a>
+                <a href="./progress/week01-checklist.md" 
+                   class="text-center p-4 border rounded-lg hover:bg-gray-50 transition">
+                    <div class="text-2xl mb-2">✅</div>
+                    <div class="text-sm">체크리스트</div>
+                </a>
+                <a href="./resources/sql-queries.md" 
+                   class="text-center p-4 border rounded-lg hover:bg-gray-50 transition">
+                    <div class="text-2xl mb-2">💾</div>
+                    <div class="text-sm">SQL 쿼리</div>
+                </a>
+                <a href="./resources/api-commands.md" 
+                   class="text-center p-4 border rounded-lg hover:bg-gray-50 transition">
+                    <div class="text-2xl mb-2">🔌</div>
+                    <div class="text-sm">API 명령어</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 카테고리별 차트
+        const ctx = document.getElementById('categoryChart').getContext('2d');
+        const categoryChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['키즈카페', '도서관', '공원', '박물관', '체험시설', '문화센터', '기타'],
+                datasets: [{
+                    label: '현재',
+                    data: [1, 1, 1, 1, 0, 0, 1],
+                    backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    borderWidth: 1
+                }, {
+                    label: '목표',
+                    data: [20, 15, 20, 15, 10, 10, 10],
+                    backgroundColor: 'rgba(229, 231, 235, 0.8)',
+                    borderColor: 'rgba(156, 163, 175, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // 체크박스 상태 저장
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                localStorage.setItem(this.id || Math.random(), this.checked);
+                updateProgress();
+            });
+        });
+
+        // 진행률 업데이트
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+            const weekProgress = (checked.length / checkboxes.length) * 100;
+            
+            // 주간 진행률에 따른 전체 진행률 계산
+            const overallProgress = 5 + (weekProgress * 0.05); // Phase 1은 전체의 10%
+            
+            document.getElementById('overallPercent').textContent = overallProgress.toFixed(1) + '%';
+            document.querySelector('.progress-bar').style.width = overallProgress + '%';
+        }
+
+        // 페이지 로드 시 실행
+        window.onload = function() {
+            updateProgress();
+        };
+    </script>
+</body>
+</html>
